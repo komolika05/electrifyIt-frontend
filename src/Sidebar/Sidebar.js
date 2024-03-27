@@ -1,29 +1,49 @@
+import { Outlet, useLocation } from "react-router-dom";
+
 import "./Sidebar.scss";
 import MenuItem from "./MenuItem";
 import { useNavigate } from "react-router-dom";
 
 function Sidebar() {
+  const location = useLocation();
   const navigate = useNavigate();
 
+  const pageTitle = location.pathname.split("/").filter((l) => l !== "")[0];
+  
   const items = [
     {
-      name: "Home",
-      navigateTo: "/home",
+      name: "Overview",
+      navigateTo: "/overview",
       iconSrc: "",
     },
     {
-      name: "Home",
-      navigateTo: "/home",
+      name: "Vehicles",
+      navigateTo: "/vehicles",
       iconSrc: "",
     },
     {
-      name: "Home",
-      navigateTo: "/home",
+      name: "Chargers",
+      navigateTo: "/chargers",
+      iconSrc: "",
+    },
+    {
+      name: "Drivers",
+      navigateTo: "/drivers",
+      iconSrc: "",
+    },
+    {
+      name: "Schedules",
+      navigateTo: "/schedules",
       iconSrc: "",
     },
     {
       name: "Reports",
       navigateTo: "/reports",
+      iconSrc: "",
+    },
+    {
+      name: "Admin panel",
+      navigateTo: "/adminpanel",
       iconSrc: "",
     },
   ];
@@ -33,6 +53,7 @@ function Sidebar() {
       <div className="menu-items">
         {items.map(({ iconSrc, name, navigateTo }) => (
           <MenuItem
+            isSelected={name.toString().toLowerCase().includes(pageTitle.toLowerCase())}
             key={name}
             iconSrc={iconSrc}
             name={name}

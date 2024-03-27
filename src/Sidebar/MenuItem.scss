@@ -1,18 +1,20 @@
 .container-menuItem {
     display: flex;
     flex-direction: row;
-    background-color: white;
+    color: #ffffff;
     border-radius: 20px;
     cursor: pointer;
     padding: 12px;
     margin: 12px;
-    color: #37559a;
 
     .icon {
-
     }
 
     .text {
-
     }
+}
+
+.selected-menuItem {
+    background-color: white;
+    color: #37559a;
 }

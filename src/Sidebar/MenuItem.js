@@ -1,8 +1,9 @@
 import "./MenuItem.scss";
 
-function MenuItem({ iconSrc, name, onItemSelected }) {
+function MenuItem({ isSelected, iconSrc, name, onItemSelected }) {
+  console.log({isSelected})
   return (
-    <div className="container-menuItem" onClick={onItemSelected}>
+    <div className={`container-menuItem ${isSelected && "selected-menuItem"}`} onClick={onItemSelected}>
       <div className="icon">{/* TODO: To include icon image here */}</div>
 
       <div className="text">{name}</div>
