@@ -17,7 +17,7 @@ const Layout = () => {
       <div className="page">
         <div className="header">
           <h1 style={{ "text-transform": "capitalize" }}>{pageTitle}</h1>
-          <h3>USERNAME</h3>
+          <h4>USERNAME</h4>
         </div>
         <Outlet />
         <br />
