@@ -2,15 +2,48 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./Layout/Layout.js";
 import Reports from "./Reports/Reports.js";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { deDE } from "@mui/x-date-pickers/locales";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#ffffff",
+    },
+    secondary: {
+      main: "#ffffff",
+    },
+    background: {
+      paper: "black",
+      default: "ffffff",
+    },
+    text: {
+      primary: "white",
+      secondary: "white",
+    },
+    MuiSelect: {
+      styleOverrides: {
+        root: {
+          borderColor: "red",
+        },
+      },
+    },
+    // border: {
+    //   paper: "#ffffff",
+    //   default: "#ffffff"
+    // }
+  },
+});
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        {/* <Route index element={<Home />} /> */}
-        <Route path="/reports" element={<Reports />} />
-      </Route>
-    </Routes>
+    <ThemeProvider theme={theme}>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route path="/reports" element={<Reports />} />
+        </Route>
+      </Routes>
+    </ThemeProvider>
   );
 }
 

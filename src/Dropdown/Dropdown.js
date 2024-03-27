@@ -44,7 +44,7 @@ export default function MultipleSelectPlaceholder({
 
   return (
     <div>
-      <FormControl sx={{width: 300}}>
+      <FormControl sx={{ width: 300 }}>
         <Select
           multiple
           displayEmpty
@@ -61,7 +61,7 @@ export default function MultipleSelectPlaceholder({
           MenuProps={MenuProps}
           inputProps={{ "aria-label": "Without label" }}
         >
-          <MenuItem disabled value="" style={{ color: "white" }}>
+          <MenuItem disabled value="" style={{ color: "#ffffff" }}>
             {placeholder}
           </MenuItem>
           {fields.map((name) => (

@@ -33,39 +33,46 @@ function Reports() {
     <div className="container">
       <div className="dropdown-container">
         <div className="dropdown-item">
-        <Dropdown
-          fields={["Total Miles Driven", "Energy Consumption", "Cost Analysis"]}
-          placeholder={"Reports"}
-        />
+          <Dropdown
+            fields={[
+              "Total Miles Driven",
+              "Energy Consumption",
+              "Cost Analysis",
+            ]}
+            placeholder={"Reports"}
+          />
         </div>
 
         <div className="dropdown-item">
-        <Dropdown
-          fields={["Daily", "Weekly", "Monthly", "Yearly"]}
-          placeholder={"Frequency"}
-        />
+          <Dropdown
+            fields={["Daily", "Weekly", "Monthly", "Yearly"]}
+            placeholder={"Frequency"}
+          />
         </div>
 
         <div className="dropdown-item">
-        <DatePicker onDateSelect={(startDate, endDate) => {
-            console.log("On date select",startDate, endDate)
-            fetchData(startDate, endDate)}}/>
+          <DatePicker
+            onDateSelect={(startDate, endDate) => {
+              console.log("On date select", startDate, endDate);
+              fetchData(startDate, endDate);
+            }}
+          />
         </div>
       </div>
 
       {/* TABLE */}
       <div>
-        <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
-            <TableHead>
-              <TableRow>
+        <TableContainer component={Paper} sx={{ maxHeight: 500 }}>
+          <Table stickyHeader sx={{ minWidth: 650, backgroundColor: "black" }} aria-label="simple table">
+            <TableHead sx={{backgroundColor: "#1c1c26"}}>
+              <TableRow >
                 <TableCell>License Plate</TableCell>
-                <TableCell align="right">Make</TableCell>
-                <TableCell align="right">VIN</TableCell>
-                <TableCell align="right">Model</TableCell>
-                <TableCell align="right">Type </TableCell>
-                <TableCell align="right">Date</TableCell>
-                <TableCell align="right">Miles Driven</TableCell>
+                <TableCell align="left">Make</TableCell>
+                <TableCell align="left">VIN</TableCell>
+                <TableCell align="left">Model</TableCell>
+                <TableCell align="left">Type </TableCell>
+                <TableCell align="left">Date</TableCell>
+                <TableCell align="left">Miles Driven</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -77,12 +84,12 @@ function Reports() {
                   <TableCell component="th" scope="row">
                     {row.licenseType}
                   </TableCell>
-                  <TableCell align="right">{row.make}</TableCell>
-                  <TableCell align="right">{row.vin}</TableCell>
-                  <TableCell align="right">{row.model}</TableCell>
-                  <TableCell align="right">{row.type}</TableCell>
-                  <TableCell align="right">{row.date}</TableCell>
-                  <TableCell align="right">{row.milesDriven}</TableCell>
+                  <TableCell align="left">{row.make}</TableCell>
+                  <TableCell align="left">{row.vin}</TableCell>
+                  <TableCell align="left">{row.model}</TableCell>
+                  <TableCell align="left">{row.type}</TableCell>
+                  <TableCell align="left">{row.date}</TableCell>
+                  <TableCell align="left">{row.milesDriven}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
