@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { fetchReports } from "../apis";
 import "./Reports.scss";
+import Dropdown from "../Dropdown/Dropdown.js";
+import DatePicker from "../DateRangePicker/DateRangePicker.js";
 
 // Table imports
 import Table from "@mui/material/Table";
@@ -14,9 +16,9 @@ import Paper from "@mui/material/Paper";
 function Reports() {
   const [reports, setReports] = useState([]);
 
-  async function fetchData() {
+  async function fetchData(startDate = "", endDate = "") {
     try {
-      const reportsResponse = await fetchReports();
+      const reportsResponse = await fetchReports(startDate, endDate);
       setReports(reportsResponse);
     } catch (e) {
       console.log("error fetching reports", e);
@@ -29,6 +31,28 @@ function Reports() {
 
   return (
     <div className="container">
+      <div className="dropdown-container">
+        <div className="dropdown-item">
+        <Dropdown
+          fields={["Total Miles Driven", "Energy Consumption", "Cost Analysis"]}
+          placeholder={"Reports"}
+        />
+        </div>
+
+        <div className="dropdown-item">
+        <Dropdown
+          fields={["Daily", "Weekly", "Monthly", "Yearly"]}
+          placeholder={"Frequency"}
+        />
+        </div>
+
+        <div className="dropdown-item">
+        <DatePicker onDateSelect={(startDate, endDate) => {
+            console.log("On date select",startDate, endDate)
+            fetchData(startDate, endDate)}}/>
+        </div>
+      </div>
+
       {/* TABLE */}
       <div>
         <TableContainer component={Paper}>
