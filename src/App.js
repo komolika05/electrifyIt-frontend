@@ -40,7 +40,13 @@ function App() {
     <ThemeProvider theme={theme}>
       <Routes>
         <Route path="/" element={<Layout />}>
+          <Route path="/overview" element={<></>} />
+          <Route path="/vehicles" element={<></>} />
+          <Route path="/chargers" element={<></>} />
+          <Route path="/drivers" element={<></>} />
+          <Route path="/schedules" element={<></>} />
           <Route path="/reports" element={<Reports />} />
+          <Route path="/adminpanel" element={<></>} />
         </Route>
       </Routes>
     </ThemeProvider>
