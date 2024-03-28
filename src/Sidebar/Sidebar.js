@@ -56,11 +56,11 @@ function Sidebar() {
   ];
   return (
     <div className="container-sidebar">
-      <div className="top-left">
+      <button className="top-left" onClick={() => navigate("/overview")}>
         <img className="logo" src={electrifyLogo} />
         <h2>Electrify</h2>
         <h2 style={{ color: "blue" }}>It</h2>
-      </div>
+      </button>
       <div className="menu-items">
         {items.map(({ iconSrc, name, navigateTo }) => (
           <MenuItem
