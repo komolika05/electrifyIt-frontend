@@ -9,7 +9,7 @@ function Sidebar() {
   const navigate = useNavigate();
 
   const pageTitle = location.pathname.split("/").filter((l) => l !== "")[0];
-  
+
   const items = [
     {
       name: "Overview",
@@ -53,7 +53,9 @@ function Sidebar() {
       <div className="menu-items">
         {items.map(({ iconSrc, name, navigateTo }) => (
           <MenuItem
-            isSelected={name.toString().toLowerCase().includes(pageTitle.toLowerCase())}
+            isSelected={
+              name.toLowerCase().includes(pageTitle?.toLowerCase())
+            }
             key={name}
             iconSrc={iconSrc}
             name={name}
