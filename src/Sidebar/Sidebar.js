@@ -1,8 +1,11 @@
 import { Outlet, useLocation } from "react-router-dom";
-
+import electrifyLogo from "../Logo/electrifyitnow_logo-removebg-preview.png";
 import "./Sidebar.scss";
 import MenuItem from "./MenuItem";
 import { useNavigate } from "react-router-dom";
+import HomeIcon from "@mui/icons-material/Home";
+import LocalShippingIcon from "@mui/icons-material/LocalShipping";
+import OfflineBoltIcon from "@mui/icons-material/OfflineBolt";
 
 function Sidebar() {
   const location = useLocation();
@@ -14,17 +17,17 @@ function Sidebar() {
     {
       name: "Overview",
       navigateTo: "/overview",
-      iconSrc: "",
+      iconSrc: <HomeIcon sx={{ fontSize: "large", color: "white" }} />,
     },
     {
       name: "Vehicles",
       navigateTo: "/vehicles",
-      iconSrc: "",
+      iconSrc: <LocalShippingIcon sx={{ fontSize: "large", color: "white" }} />,
     },
     {
       name: "Chargers",
       navigateTo: "/chargers",
-      iconSrc: "",
+      iconSrc: <OfflineBoltIcon sx={{ fontSize: "large", color: "white" }} />,
     },
     {
       name: "Drivers",
@@ -49,13 +52,15 @@ function Sidebar() {
   ];
   return (
     <div className="container-sidebar">
-      <div>LOGO </div>
+      <div className="top-left">
+        <img className="logo" src={electrifyLogo} />
+        <h2>Electrify</h2>
+        <h2 style={{ color: "blue" }}>It</h2>
+      </div>
       <div className="menu-items">
         {items.map(({ iconSrc, name, navigateTo }) => (
           <MenuItem
-            isSelected={
-              name.toLowerCase().includes(pageTitle?.toLowerCase())
-            }
+            isSelected={name.toLowerCase().includes(pageTitle?.toLowerCase())}
             key={name}
             iconSrc={iconSrc}
             name={name}

@@ -1,6 +1,5 @@
 import * as React from "react";
 import dayjs from "dayjs";
-
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateRangePicker } from "@mui/x-date-pickers-pro/DateRangePicker";
@@ -11,19 +10,12 @@ export default function SingleInputDateRangePicker({
   onDateSelect = () => {},
 }) {
   return (
-    <LocalizationProvider
-      sx={{ backgroundColor: "black" }}
-      dateAdapter={AdapterDayjs}
-    >
-      <DemoContainer
-        sx={{ backgroundColor: "black" }}
-        components={["SingleInputDateRangeField"]}
-        sx={{ pt: 0 }}
-      >
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <DemoContainer components={["SingleInputDateRangeField"]}>
         <DateRangePicker
-          sx={{ backgroundColor: "black" }}
           slots={{ field: SingleInputDateRangeField }}
           name="allowedRange"
+          slotProps={{ textField: { placeholder: "Time Frame" } }}
           onChange={(newValue) => {
             const [start, end] = newValue;
             if (start && end) {

@@ -4,6 +4,21 @@
     flex-direction: column;
     height: 100%;
     background-color: #1c1c26;
-    padding: 12px;
 
+}
+
+.top-left{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 30px;    
+    margin-top: 20px;
+}
+
+.logo{
+    height: 70px;
+}
+
+.top-left h2{
+    margin-top: 20px;
+    color: #FFF;
 }

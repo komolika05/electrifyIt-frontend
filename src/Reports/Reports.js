@@ -63,14 +63,14 @@ function Reports() {
       {/* TABLE */}
       <div>
         <TableContainer component={Paper} sx={{ maxHeight: 500 }}>
-          <Table stickyHeader sx={{ minWidth: 650, backgroundColor: "black" }} aria-label="simple table">
-            <TableHead sx={{backgroundColor: "#1c1c26"}}>
-              <TableRow >
+          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead sx={{ backgroundColor: "#1c1c26", position: "sticky", top: 0 }}>
+              <TableRow>
                 <TableCell>License Plate</TableCell>
                 <TableCell align="left">Make</TableCell>
                 <TableCell align="left">VIN</TableCell>
                 <TableCell align="left">Model</TableCell>
-                <TableCell align="left">Type </TableCell>
+                <TableCell align="left">Type</TableCell>
                 <TableCell align="left">Date</TableCell>
                 <TableCell align="left">Miles Driven</TableCell>
               </TableRow>
