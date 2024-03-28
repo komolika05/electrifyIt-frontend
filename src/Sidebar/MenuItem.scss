@@ -8,13 +8,21 @@
     margin: 12px;
 
     .icon {
+        color: #ffffff;
+        margin-right: 10px;
     }
 
     .text {
+        margin-top: 4px;
+        font-size: 14px;
     }
 }
 
 .selected-menuItem {
     background-color: white;
-    color: #37559a;
+    color: #070707;
+
+    .icon{
+        color: #020202;
+    }
 }

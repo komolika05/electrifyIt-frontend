@@ -6,6 +6,10 @@ import { useNavigate } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import OfflineBoltIcon from "@mui/icons-material/OfflineBolt";
+import SignalCellularAltIcon from "@mui/icons-material/SignalCellularAlt";
+import SensorOccupiedIcon from "@mui/icons-material/SensorOccupied";
+import EditCalendarIcon from "@mui/icons-material/EditCalendar";
+import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 
 function Sidebar() {
   const location = useLocation();
@@ -17,37 +21,37 @@ function Sidebar() {
     {
       name: "Overview",
       navigateTo: "/overview",
-      iconSrc: <HomeIcon sx={{ fontSize: "large", color: "white" }} />,
+      iconSrc: <HomeIcon sx={{ fontSize: "22px" }} />,
     },
     {
       name: "Vehicles",
       navigateTo: "/vehicles",
-      iconSrc: <LocalShippingIcon sx={{ fontSize: "large", color: "white" }} />,
+      iconSrc: <LocalShippingIcon sx={{ fontSize: "22px" }} />,
     },
     {
       name: "Chargers",
       navigateTo: "/chargers",
-      iconSrc: <OfflineBoltIcon sx={{ fontSize: "large", color: "white" }} />,
+      iconSrc: <OfflineBoltIcon sx={{ fontSize: "22px" }} />,
     },
     {
       name: "Drivers",
       navigateTo: "/drivers",
-      iconSrc: "",
+      iconSrc: <SensorOccupiedIcon sx={{ fontSize: "22px" }} />,
     },
     {
       name: "Schedules",
       navigateTo: "/schedules",
-      iconSrc: "",
+      iconSrc: <EditCalendarIcon sx={{ fontSize: "22px" }} />,
     },
     {
       name: "Reports",
       navigateTo: "/reports",
-      iconSrc: "",
+      iconSrc: <SignalCellularAltIcon sx={{ fontSize: "22px" }} />,
     },
     {
       name: "Admin panel",
       navigateTo: "/adminpanel",
-      iconSrc: "",
+      iconSrc: <PersonOutlineIcon sx={{ fontSize: "22px" }} />,
     },
   ];
   return (
