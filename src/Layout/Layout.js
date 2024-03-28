@@ -2,7 +2,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import Sidebar from "./../Sidebar/Sidebar";
 import { useEffect, useState, useRef } from "react";
 
-import "./layout.scss";
+import "./Layout.scss";
 
 const Layout = () => {
   const location = useLocation();
