@@ -1,5 +1,5 @@
 export async function fetchReports(fromDate, toDate) {
-  let url = "http://13.71.41.129/reports/";
+  let url = "http://13.71.41.129/api/reports/";
 
   if (fromDate && toDate) {
     url += `?fromDate=${fromDate}&toDate=${toDate}`;
