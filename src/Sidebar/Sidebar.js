@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import electrifyLogo from "../Logo/electrifyitnow_logo-removebg-preview.png";
 import "./Sidebar.scss";
@@ -14,6 +15,7 @@ import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 function Sidebar() {
   const location = useLocation();
   const navigate = useNavigate();
+  const [selectedItem, setSelectedItem] = useState("");
 
   const pageTitle = location.pathname.split("/").filter((l) => l !== "")[0];
 
@@ -21,37 +23,86 @@ function Sidebar() {
     {
       name: "Overview",
       navigateTo: "/overview",
-      iconSrc: <HomeIcon sx={{ fontSize: "22px" }} />,
+      iconSrc: (
+        <HomeIcon
+          sx={{
+            fontSize: "22px",
+            ...(selectedItem === "Overview" && { color: "black" }),
+          }}
+        />
+      ),
     },
     {
       name: "Vehicles",
       navigateTo: "/vehicles",
-      iconSrc: <LocalShippingIcon sx={{ fontSize: "22px" }} />,
+      iconSrc: (
+        <LocalShippingIcon
+          sx={{
+            fontSize: "22px",
+            ...(selectedItem === "Vehicles" && { color: "black" }),
+          }}
+        />
+      ),
     },
     {
       name: "Chargers",
       navigateTo: "/chargers",
-      iconSrc: <OfflineBoltIcon sx={{ fontSize: "22px" }} />,
+      iconSrc: (
+        <OfflineBoltIcon
+          sx={{
+            fontSize: "22px",
+            ...(selectedItem === "Chargers" && { color: "black" }),
+          }}
+        />
+      ),
     },
     {
       name: "Drivers",
       navigateTo: "/drivers",
-      iconSrc: <SensorOccupiedIcon sx={{ fontSize: "22px" }} />,
+      iconSrc: (
+        <SensorOccupiedIcon
+          sx={{
+            fontSize: "22px",
+            ...(selectedItem === "Drivers" && { color: "black" }),
+          }}
+        />
+      ),
     },
     {
       name: "Schedules",
       navigateTo: "/schedules",
-      iconSrc: <EditCalendarIcon sx={{ fontSize: "22px" }} />,
+      iconSrc: (
+        <EditCalendarIcon
+          sx={{
+            fontSize: "22px",
+            ...(selectedItem === "Schedules" && { color: "black" }),
+          }}
+        />
+      ),
     },
     {
       name: "Reports",
       navigateTo: "/reports",
-      iconSrc: <SignalCellularAltIcon sx={{ fontSize: "22px" }} />,
+      iconSrc: (
+        <SignalCellularAltIcon
+          sx={{
+            fontSize: "22px",
+            ...(selectedItem === "Reports" && { color: "black" }),
+          }}
+        />
+      ),
     },
     {
       name: "Admin panel",
       navigateTo: "/adminpanel",
-      iconSrc: <PersonOutlineIcon sx={{ fontSize: "22px" }} />,
+      iconSrc: (
+        <PersonOutlineIcon
+          sx={{
+            fontSize: "22px",
+            ...(selectedItem === "Admin panel" && { color: "black" }),
+          }}
+        />
+      ),
     },
   ];
   return (
@@ -69,6 +120,7 @@ function Sidebar() {
             iconSrc={iconSrc}
             name={name}
             onItemSelected={() => {
+              setSelectedItem(name);
               navigate(navigateTo);
             }}
           />
