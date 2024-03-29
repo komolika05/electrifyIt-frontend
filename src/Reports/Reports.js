@@ -17,11 +17,12 @@ function Reports() {
   const [reports, setReports] = useState({ columns: [], rows: [[]] });
   const [toDate, setToDate] = useState("");
   const [fromDate, setFromDate] = useState("");
+  const [frequency, setFrequency] = useState("");
 
   console.log(reports);
   async function fetchData(startDate = "", endDate = "") {
     try {
-      const reportsResponse = await fetchReports(startDate, endDate);
+      const reportsResponse = await fetchReports(startDate, endDate, frequency);
       setReports(reportsResponse);
     } catch (e) {
       console.log("error fetching reports", e);
@@ -51,6 +52,9 @@ function Reports() {
           <Dropdown
             fields={["Daily", "Weekly", "Monthly", "Yearly"]}
             placeholder={"Frequency"}
+            onSelect={(value) => {
+              setFrequency(value);
+            }}
           />
         </div>
 

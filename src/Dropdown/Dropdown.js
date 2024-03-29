@@ -25,9 +25,10 @@ function getStyles(name, fieldName, theme) {
   };
 }
 
-export default function MultipleSelectPlaceholder({
+export default function SingleSelectPlaceholder({
   fields = [],
   placeholder,
+  onSelect = () => {},
 }) {
   const theme = useTheme();
   const [fieldName, setFieldName] = React.useState([]);
@@ -40,24 +41,18 @@ export default function MultipleSelectPlaceholder({
       // On autofill we get a stringified value.
       typeof value === "string" ? value.split(",") : value
     );
+    console.log(value);
+    onSelect(value.toLowerCase());
   };
 
   return (
     <div>
       <FormControl sx={{ width: 300 }}>
         <Select
-          multiple
           displayEmpty
           value={fieldName}
           onChange={handleChange}
           input={<OutlinedInput />}
-          renderValue={(selected) => {
-            if (selected.length === 0) {
-              return placeholder;
-            }
-
-            return selected.join(", ");
-          }}
           MenuProps={MenuProps}
           inputProps={{ "aria-label": "Without label" }}
         >
