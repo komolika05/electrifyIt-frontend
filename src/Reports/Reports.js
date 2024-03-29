@@ -19,7 +19,6 @@ function Reports() {
   const [fromDate, setFromDate] = useState("");
   const [frequency, setFrequency] = useState("");
 
-  console.log(reports);
   async function fetchData(startDate = "", endDate = "") {
     try {
       const reportsResponse = await fetchReports(startDate, endDate, frequency);
@@ -29,10 +28,7 @@ function Reports() {
     }
   }
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-  console.log(reports);
+  
 
   return (
     <div className="container">
@@ -61,7 +57,6 @@ function Reports() {
         <div className="dropdown-item">
           <DateRangePicker
             onDateSelect={(startDate, endDate) => {
-              console.log("On date select", startDate, endDate);
               setFromDate(startDate);
               setToDate(endDate);
             }}
