@@ -14,7 +14,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
 function Reports() {
-  const [reports, setReports] = useState({ coloumns: [], rows: [[]] });
+  const [reports, setReports] = useState({ columns: [], rows: [[]] });
   const [toDate, setToDate] = useState("");
   const [fromDate, setFromDate] = useState("");
 
