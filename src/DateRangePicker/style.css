@@ -1,0 +1,7 @@
+.MuiSvgIcon-root {
+    color: #fff !important;
+}
+
+.MuiDateRangeCalendar-root > div:first-child {
+    opacity: 0;
+  }
