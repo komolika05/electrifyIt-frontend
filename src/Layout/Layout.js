@@ -1,5 +1,5 @@
 import { Outlet, useLocation } from "react-router-dom";
-import Sidebar from "./../Sidebar/Sidebar";
+import Sidebar from "./../Sidebar/Sidebar.js";
 import { useEffect, useState, useRef } from "react";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import NotificationsIcon from "@mui/icons-material/Notifications";

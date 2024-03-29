@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { fetchReports } from "../apis";
 import "./Reports.scss";
 import Dropdown from "../Dropdown/Dropdown.js";
-import DatePicker from "../DateRangePicker/DateRangePicker.js";
+import DateRangePicker from "./../DateRangePicker/DateRangePicker.js";
 
 // Table imports
 import Table from "@mui/material/Table";
@@ -14,8 +14,11 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
 function Reports() {
-  const [reports, setReports] = useState([]);
+  const [reports, setReports] = useState({ coloumns: [], rows: [[]] });
+  const [toDate, setToDate] = useState("");
+  const [fromDate, setFromDate] = useState("");
 
+  console.log(reports);
   async function fetchData(startDate = "", endDate = "") {
     try {
       const reportsResponse = await fetchReports(startDate, endDate);
@@ -28,6 +31,7 @@ function Reports() {
   useEffect(() => {
     fetchData();
   }, []);
+  console.log(reports);
 
   return (
     <div className="container">
@@ -51,45 +55,49 @@ function Reports() {
         </div>
 
         <div className="dropdown-item">
-          <DatePicker
+          <DateRangePicker
             onDateSelect={(startDate, endDate) => {
               console.log("On date select", startDate, endDate);
-              fetchData(startDate, endDate);
+              setFromDate(startDate);
+              setToDate(endDate);
             }}
           />
         </div>
+        <button
+          className="generate-button"
+          onClick={() => {
+            fetchData(fromDate, toDate);
+          }}
+        >
+          Generate Report
+        </button>
       </div>
 
       {/* TABLE */}
       <div>
         <TableContainer component={Paper} sx={{ maxHeight: 500 }}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
-            <TableHead sx={{ backgroundColor: "#1c1c26", position: "sticky", top: 0 }}>
+            <TableHead
+              sx={{ backgroundColor: "#1c1c26", position: "sticky", top: 0 }}
+            >
               <TableRow>
-                <TableCell>License Plate</TableCell>
-                <TableCell align="left">Make</TableCell>
-                <TableCell align="left">VIN</TableCell>
-                <TableCell align="left">Model</TableCell>
-                <TableCell align="left">Type</TableCell>
-                <TableCell align="left">Date</TableCell>
-                <TableCell align="left">Miles Driven</TableCell>
+                {reports.columns.map((coloumn) => (
+                  <TableCell align="left">{coloumn}</TableCell>
+                ))}
               </TableRow>
             </TableHead>
             <TableBody>
-              {reports.map((row) => (
+              {/* reports.rows=[["field1", "fild2", ....]] */}
+              {reports.rows.map((row, index) => (
                 <TableRow
-                  key={row.name}
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  key={index}
+                  sx={{
+                    "&:last-child td, &:last-child th": { border: 0 },
+                  }}
                 >
-                  <TableCell component="th" scope="row">
-                    {row.licenseType}
-                  </TableCell>
-                  <TableCell align="left">{row.make}</TableCell>
-                  <TableCell align="left">{row.vin}</TableCell>
-                  <TableCell align="left">{row.model}</TableCell>
-                  <TableCell align="left">{row.type}</TableCell>
-                  <TableCell align="left">{row.date}</TableCell>
-                  <TableCell align="left">{row.milesDriven}</TableCell>
+                  {row.map((value) => (
+                    <TableCell align="left">{value}</TableCell>
+                  ))}
                 </TableRow>
               ))}
             </TableBody>

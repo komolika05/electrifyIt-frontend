@@ -56,7 +56,7 @@ function Sidebar() {
   ];
   return (
     <div className="container-sidebar">
-      <button className="top-left" onClick={() => navigate("/overview")}>
+      <button className="top-left" onClick={() => navigate("/")}>
         <img className="logo" src={electrifyLogo} />
         <h2>Electrify</h2>
         <h2 style={{ color: "blue" }}>It</h2>

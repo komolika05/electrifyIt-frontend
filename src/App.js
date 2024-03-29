@@ -25,9 +25,11 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           borderColor: "red",
+          color: "white",
         },
       },
     },
+    svg: { color: "white" },
     // border: {
     //   paper: "#ffffff",
     //   default: "#ffffff"
@@ -54,4 +56,3 @@ function App() {
 }
 
 export default App;
-

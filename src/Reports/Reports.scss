@@ -5,8 +5,24 @@
     flex-direction: row;
     align-items: center;
     margin-bottom: 20px;
+    justify-content: space-around;
 
     .dropdown-item {
         margin-right: 20px;
+    }
+
+    .generate-button{
+        padding: 8px;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-top: 12px;
+        background-color: rgb(54, 111, 236);
+        color: white;
+        font-weight: 570;
+        width: 130px;
+    }
+
+    .generate-button:hover{
+        background-color:rgb(35, 79, 173);
     }
 }
