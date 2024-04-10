@@ -12,9 +12,10 @@ import SensorOccupiedIcon from "@mui/icons-material/SensorOccupied";
 import EditCalendarIcon from "@mui/icons-material/EditCalendar";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 
+
 function Sidebar() {
   const location = useLocation();
-  const navigate = useNavigate();
+  const navigate = useNavigate();  // Navigate is coming for useNavigate hook of react-router-dom
   const [selectedItem, setSelectedItem] = useState("");
 
   const pageTitle = location.pathname.split("/").filter((l) => l !== "")[0];

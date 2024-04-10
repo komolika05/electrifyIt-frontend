@@ -48,7 +48,7 @@ function Reports() {
           <Dropdown
             fields={["Daily", "Weekly", "Monthly", "Yearly"]}
             placeholder={"Frequency"}
-            onSelect={(value) => {
+            onSelect={(value) => { // call back function
               setFrequency(value);
             }}
           />

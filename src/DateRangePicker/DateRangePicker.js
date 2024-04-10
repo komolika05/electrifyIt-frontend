@@ -38,7 +38,7 @@ export default function SingleInputDateRangePicker({
               const startDate = dayjs(start).format("YYYY/MM/DD");
               const endDate = dayjs(end).format("YYYY/MM/DD");
               console.log("calling on date select");
-              onDateSelect(startDate, endDate);
+              onDateSelect(startDate, endDate); // call back function
             }
           }}
         />
